@@ -1,13 +1,13 @@
-import { useState } from "react"
-import { InputCheckbox } from "../InputCheckbox"
-import { TransactionPaneComponent } from "./types"
+import { useState } from "react";
+import { InputCheckbox } from "../InputCheckbox";
+import { TransactionPaneComponent } from "./types";
 
 export const TransactionPane: TransactionPaneComponent = ({
   transaction,
   loading,
   setTransactionApproval: consumerSetTransactionApproval,
 }) => {
-  const [approved, setApproved] = useState(transaction.approved)
+  const [approved, setApproved] = useState(transaction.approved);
 
   return (
     <div className="RampPane">
@@ -26,16 +26,16 @@ export const TransactionPane: TransactionPaneComponent = ({
           await consumerSetTransactionApproval({
             transactionId: transaction.id,
             newValue,
-          })
+          });
 
-          setApproved(newValue)
+          setApproved(newValue);
         }}
       />
     </div>
-  )
-}
+  );
+};
 
 const moneyFormatter = new Intl.NumberFormat("en-US", {
   style: "currency",
   currency: "USD",
-})
+});
